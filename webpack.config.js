@@ -8,6 +8,11 @@ module.exports = {
   },
   devtool: 'source-map',
   mode: 'development',
+  resolve: {  
+    alias: {
+      lib: path.resolve(__dirname, 'lib')
+    }
+  },
   module: {
     rules: [
       {

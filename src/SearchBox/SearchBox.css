@@ -1,8 +1,15 @@
 .search-box input[type=text] {
     font-size: 20pt;
     width: 300px;
+    border: none;
+    background-color: gainsboro;
 }
 .search-box .search-button {
     background-image: url(search-active.png);
     background-position: center;    
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    cursor: pointer;
 }
