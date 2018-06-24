@@ -71,74 +71,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./lib/EventTarget/src/EventTarget.js":
-/*!********************************************!*\
-  !*** ./lib/EventTarget/src/EventTarget.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var EventTarget = function () {
-    function EventTarget() {
-        _classCallCheck(this, EventTarget);
-
-        this.listeners = {};
-    }
-
-    _createClass(EventTarget, [{
-        key: "addEventListener",
-        value: function addEventListener(type, callback) {
-            if (!(type in this.listeners)) {
-                this.listeners[type] = [];
-            }
-            this.listeners[type].push(callback);
-        }
-    }, {
-        key: "removeEventListener",
-        value: function removeEventListener(type, callback) {
-            if (!(type in this.listeners)) {
-                return;
-            }
-            var stack = this.listeners[type];
-            for (var i = 0, l = stack.length; i < l; i++) {
-                if (stack[i] === callback) {
-                    stack.splice(i, 1);
-                    return this.removeEventListener(type, callback);
-                }
-            }
-        }
-    }, {
-        key: "dispatchEvent",
-        value: function dispatchEvent(event) {
-            if (!(event.type in this.listeners)) {
-                return;
-            }
-            var stack = this.listeners[event.type];
-            // event.target = this;
-            for (var i = 0, l = stack.length; i < l; i++) {
-                stack[i].call(this, event);
-            }
-        }
-    }]);
-
-    return EventTarget;
-}();
-
-exports.default = EventTarget;
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./src/SearchBox/SearchBox.css":
 /*!***************************************************************!*\
   !*** ./node_modules/css-loader!./src/SearchBox/SearchBox.css ***!
@@ -270,6 +202,185 @@ module.exports = function escape(url) {
     return url
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/scanex-event-target/dist/bundle.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/scanex-event-target/dist/bundle.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else { var i, a; }
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/EventTarget.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/EventTarget.js":
+/*!****************************!*\
+  !*** ./src/EventTarget.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var EventTarget = function () {
+    function EventTarget() {
+        _classCallCheck(this, EventTarget);
+
+        this.listeners = {};
+    }
+
+    _createClass(EventTarget, [{
+        key: 'addEventListener',
+        value: function addEventListener(type, callback) {
+            if (!(type in this.listeners)) {
+                this.listeners[type] = [];
+            }
+            this.listeners[type].push(callback);
+        }
+    }, {
+        key: 'removeEventListener',
+        value: function removeEventListener(type, callback) {
+            if (!(type in this.listeners)) {
+                return;
+            }
+            var stack = this.listeners[type];
+            for (var i = 0, l = stack.length; i < l; i++) {
+                if (stack[i] === callback) {
+                    stack.splice(i, 1);
+                    return this.removeEventListener(type, callback);
+                }
+            }
+        }
+    }, {
+        key: 'dispatchEvent',
+        value: function dispatchEvent(event) {
+            if (!(event.type in this.listeners)) {
+                return;
+            }
+            var stack = this.listeners[event.type];
+            Object.defineProperty(event, 'target', {
+                enumerable: false,
+                configurable: false,
+                writable: false,
+                value: this
+            });
+            for (var i = 0, l = stack.length; i < l; i++) {
+                stack[i].call(this, event);
+            }
+        }
+    }]);
+
+    return EventTarget;
+}();
+
+exports.default = EventTarget;
+
+/***/ })
+
+/******/ });
+});
+//# sourceMappingURL=bundle.js.map
 
 /***/ }),
 
@@ -810,13 +921,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _SearchBox = __webpack_require__(/*! ./SearchBox.css */ "./src/SearchBox/SearchBox.css");
+__webpack_require__(/*! ./SearchBox.css */ "./src/SearchBox/SearchBox.css");
 
-var _SearchBox2 = _interopRequireDefault(_SearchBox);
+var _scanexEventTarget = __webpack_require__(/*! scanex-event-target */ "./node_modules/scanex-event-target/dist/bundle.js");
 
-var _EventTarget2 = __webpack_require__(/*! ../../lib/EventTarget/src/EventTarget.js */ "./lib/EventTarget/src/EventTarget.js");
-
-var _EventTarget3 = _interopRequireDefault(_EventTarget2);
+var _scanexEventTarget2 = _interopRequireDefault(_scanexEventTarget);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -839,23 +948,42 @@ var SearchBox = function (_EventTarget) {
         _this._container.classList.add('search-box');
         _this._container.innerHTML = '<input type="text" placeholder="' + _this._placeholder + '" value="" /><i class="search-button"></i>';
         var txtInput = _this._container.querySelector('input');
-        if (txtInput != null) {
+        if (txtInput instanceof HTMLInputElement) {
             _this._txtInput = txtInput;
-            _this._txtInput.addEventListener('change', _this.searchHandler.bind(_this));
+            _this._txtInput.addEventListener('change', _this.doneHandler.bind(_this));
+            _this._txtInput.addEventListener('keydown', _this.changeHandler.bind(_this));
         }
         var btn = _this._container.querySelector('i');
-        if (btn != null) {
-            btn.addEventListener('click', _this.searchHandler.bind(_this));
+        if (btn instanceof HTMLElement) {
+            btn.addEventListener('click', _this.doneHandler.bind(_this));
         }
         return _this;
     }
 
     _createClass(SearchBox, [{
-        key: 'searchHandler',
-        value: function searchHandler(e) {
-            console.log(e);
+        key: 'changeHandler',
+        value: function changeHandler(e) {
+            switch (e.keyCode) {
+                default:
+                    var event = document.createEvent('CustomEvent');
+                    event.initEvent('change', false, false);
+                    if (this._txtInput != null) {
+                        Object.defineProperty(event, 'detail', {
+                            enumerable: false,
+                            configurable: false,
+                            writable: false,
+                            value: this._txtInput.value
+                        });
+                        this.dispatchEvent(event);
+                    }
+                    break;
+            }
+        }
+    }, {
+        key: 'doneHandler',
+        value: function doneHandler(e) {
             var event = document.createEvent('CustomEvent');
-            event.initEvent('change', false, false);
+            event.initEvent('done', false, false);
             if (this._txtInput != null) {
                 Object.defineProperty(event, 'detail', {
                     enumerable: false,
@@ -869,7 +997,7 @@ var SearchBox = function (_EventTarget) {
     }]);
 
     return SearchBox;
-}(_EventTarget3.default);
+}(_scanexEventTarget2.default);
 
 exports.default = SearchBox;
 
@@ -904,9 +1032,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var root = document.getElementById('root');
 
-if (root != null) {
+if (root instanceof HTMLElement) {
     var searchBox = new _SearchBox2.default(root);
     searchBox.addEventListener('change', function (e) {
+        return console.log(e);
+    });
+    searchBox.addEventListener('done', function (e) {
         return console.log(e);
     });
 }

@@ -1,6 +1,5 @@
 {
     "name": "search-box",
-    "main": "SearchBox.js",
-    "version": "1.0.0",
-    "description": ""
+    "version": "1.0",
+    "main": "./SearchBox.js"
 }
